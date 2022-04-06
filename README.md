@@ -11,7 +11,7 @@ Edge Impulse provides a comprehensive set of [tutorials](https://docs.edgeimpuls
 This repository provides the minimal steps required to integrate an arbitrary Edge Impulse project into an existing Code Composer Studio project. 
 
 ## Requirements
-* [TI Code Composer Studio IDE] (https://www.ti.com/tool/CCSTUDIO)
+* [TI Code Composer Studio IDE](https://www.ti.com/tool/CCSTUDIO)
 * A trained Edge Impulse project
 
 If you are new to Edge Impulse, you can train a custom voice recognition project [here](https://studio.edgeimpulse.com/evaluate) in just a few minutes
