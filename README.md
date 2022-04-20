@@ -146,4 +146,4 @@ makefile:951: recipe for target '<project_name>.out' failed
 tiarmclang: error: unable to execute command: Couldn't execute program 'C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-armllvm_1.3.0.LTS/bin\tiarmlnk.exe': The filename or extension is too long.  (0xCE)
 ```
 
-A robust fix for the issue is in progress and will be added in a future release. In the short term, a temporary workaround may be to move your project to a new ccs workspace in `C:/` with a very short workspace and project name. 
+A robust fix for the issue is in progress and will be added in a future release. A workaround for the issue is described in [issue #1](https://github.com/edgeimpulse/ei-ti-code-composer-examples/issues/1#issuecomment-1104174427)
