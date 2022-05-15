@@ -1,0 +1,134 @@
+/**
+ * These arguments were used when this file was generated. They will be automatically applied on subsequent loads
+ * via the GUI or CLI. Run CLI with '--help' for additional information on how to override these arguments.
+ * @cliArgs --board "/ti/boards/LP_CC1352P7_1" --rtos "tirtos" --product "simplelink_cc13xx_cc26xx_sdk@6.10.00.29"
+ * @versions {"tool":"1.12.1+2446"}
+ */
+const BOOSTXL_SENSORS = scripting.addHardware("/boostxl_sensors/BOOSTXL-SENSORS");
+
+/**
+ * Import the modules used in this configuration.
+ */
+const ble         = scripting.addModule("/ti/ble5stack/ble");
+const CCFG        = scripting.addModule("/ti/devices/CCFG");
+const rfdesign    = scripting.addModule("/ti/devices/radioconfig/rfdesign");
+const AESCCM      = scripting.addModule("/ti/drivers/AESCCM");
+const AESCCM1     = AESCCM.addInstance();
+const AESCTRDRBG  = scripting.addModule("/ti/drivers/AESCTRDRBG");
+const AESCTRDRBG1 = AESCTRDRBG.addInstance();
+const AESECB      = scripting.addModule("/ti/drivers/AESECB");
+const AESECB1     = AESECB.addInstance();
+const ECDH        = scripting.addModule("/ti/drivers/ECDH");
+const ECDH1       = ECDH.addInstance();
+const I2C         = scripting.addModule("/ti/drivers/I2C", {}, false);
+const I2C1        = I2C.addInstance();
+const NVS         = scripting.addModule("/ti/drivers/NVS");
+const NVS1        = NVS.addInstance();
+const PIN         = scripting.addModule("/ti/drivers/PIN");
+const PIN1        = PIN.addInstance();
+const PIN2        = PIN.addInstance();
+const Power       = scripting.addModule("/ti/drivers/Power");
+const RF          = scripting.addModule("/ti/drivers/RF");
+const RTOS        = scripting.addModule("/ti/drivers/RTOS");
+const TRNG        = scripting.addModule("/ti/drivers/TRNG");
+const TRNG1       = TRNG.addInstance();
+const Timer       = scripting.addModule("/ti/drivers/Timer", {}, false);
+const Timer1      = Timer.addInstance();
+const UART2       = scripting.addModule("/ti/drivers/UART2", {}, false);
+const UART21      = UART2.addInstance();
+
+/**
+ * Write custom configuration values to the imported modules.
+ */
+ble.lockProject                                           = true;
+ble.disableDisplayModule                                  = true;
+ble.radioConfig.codeExportConfig.$name                    = "ti_devices_radioconfig_code_export_param0";
+ble.connUpdateParamsPeripheral.$name                      = "ti_ble5stack_general_ble_conn_update_params0";
+ble.advSet1.$name                                         = "ti_ble5stack_broadcaster_advertisement_set0";
+ble.advSet1.advParam1.$name                               = "ti_ble5stack_broadcaster_advertisement_params0";
+ble.advSet1.advData1.$name                                = "ti_ble5stack_broadcaster_advertisement_data0";
+ble.advSet1.advData1.GAP_ADTYPE_FLAGS                     = true;
+ble.advSet1.advData1.advertisingFlags                     = ["GAP_ADTYPE_FLAGS_BREDR_NOT_SUPPORTED","GAP_ADTYPE_FLAGS_GENERAL"];
+ble.advSet1.advData1.GAP_ADTYPE_LOCAL_NAME_SHORT          = true;
+ble.advSet1.advData1.shortenedLocalName                   = "SP";
+ble.advSet1.advData1.GAP_ADTYPE_16BIT_MORE                = true;
+ble.advSet1.advData1.numOfUUIDs16More                     = 1;
+ble.advSet1.advData1.UUID016More                          = 0xFFF0;
+ble.advSet1.scanRes1.$name                                = "ti_ble5stack_broadcaster_advertisement_data1";
+ble.advSet1.scanRes1.GAP_ADTYPE_LOCAL_NAME_COMPLETE       = true;
+ble.advSet1.scanRes1.GAP_ADTYPE_SLAVE_CONN_INTERVAL_RANGE = true;
+ble.advSet1.scanRes1.maxConnInterval                      = 130;
+ble.advSet1.scanRes1.GAP_ADTYPE_POWER_LEVEL               = true;
+ble.advSet2.$name                                         = "ti_ble5stack_broadcaster_advertisement_set1";
+ble.advSet2.advParam2.$name                               = "ti_ble5stack_broadcaster_advertisement_params1";
+ble.advSet2.advParam2.advType                             = "extended";
+ble.advSet2.advData2.$name                                = "ti_ble5stack_broadcaster_advertisement_data2";
+ble.advSet2.advData2.GAP_ADTYPE_FLAGS                     = true;
+ble.advSet2.advData2.advertisingFlags                     = ["GAP_ADTYPE_FLAGS_BREDR_NOT_SUPPORTED","GAP_ADTYPE_FLAGS_GENERAL"];
+ble.advSet2.advData2.GAP_ADTYPE_LOCAL_NAME_SHORT          = true;
+ble.advSet2.advData2.shortenedLocalName                   = "SP";
+ble.advSet2.advData2.GAP_ADTYPE_16BIT_MORE                = true;
+ble.advSet2.advData2.numOfUUIDs16More                     = 1;
+ble.advSet2.advData2.UUID016More                          = 0xFFF0;
+ble.advSet2.scanRes2.$name                                = "ti_ble5stack_broadcaster_advertisement_data3";
+
+CCFG.xoscCapArray             = true;
+CCFG.xoscCapArrayDelta        = 0xC1;
+CCFG.enableBootloader         = true;
+CCFG.enableBootloaderBackdoor = true;
+CCFG.dioBootloaderBackdoor    = 15;
+CCFG.levelBootloaderBackdoor  = "Active low";
+CCFG.ccfgTemplate.$name       = "ti_devices_CCFG_CCFGCC26XXTemplate0";
+
+rfdesign.pa20    = "none";
+rfdesign.fbSub1g = "none";
+
+AESCCM1.$name = "CONFIG_AESCCM0";
+
+AESCTRDRBG1.$name              = "CONFIG_AESCTRDRBG_0";
+AESCTRDRBG1.aesctrObject.$name = "CONFIG_AESCTR_0";
+
+AESECB1.$name = "CONFIG_AESECB0";
+
+ECDH1.$name = "CONFIG_ECDH0";
+
+I2C1.$name     = "CONFIG_I2C_0";
+I2C1.$hardware = BOOSTXL_SENSORS.components.SENSORS_I2C;
+
+NVS1.$name                    = "CONFIG_NVSINTERNAL";
+NVS1.internalFlash.$name      = "ti_drivers_nvs_NVSCC26XX0";
+NVS1.internalFlash.regionBase = 0x48000;
+NVS1.internalFlash.regionSize = 0x4000;
+
+PIN1.$hardware = system.deviceData.board.components["BTN-1"];
+PIN1.$name     = "CONFIG_GPIO_BTN1";
+
+PIN2.$hardware = system.deviceData.board.components["BTN-2"];
+PIN2.$name     = "CONFIG_GPIO_BTN2";
+
+RF.$hardware = system.deviceData.board.components["SKY13317-373LF"];
+
+TRNG1.$name = "CONFIG_TRNG_0";
+
+Timer1.$name               = "CONFIG_TIMER_0";
+Timer1.timerInstance.$name = "CONFIG_GPTIMER_0";
+
+UART21.$name = "CONFIG_UART2_0";
+
+/**
+ * Pinmux solution for unlocked pins/peripherals. This ensures that minor changes to the automatic solver in a future
+ * version of the tool will not impact the pinmux you originally saw.  These lines can be completely deleted in order to
+ * re-solve from scratch.
+ */
+I2C1.i2c.$suggestSolution                   = "I2C0";
+I2C1.i2c.sdaPin.$suggestSolution            = "boosterpack.10";
+I2C1.i2c.sclPin.$suggestSolution            = "boosterpack.9";
+PIN1.pinPin.$suggestSolution                = "boosterpack.13";
+PIN2.pinPin.$suggestSolution                = "boosterpack.8";
+RF.rfAntennaPin0.$suggestSolution           = "ball.41";
+RF.rfAntennaPin1.$suggestSolution           = "ball.42";
+RF.rfAntennaPin2.$suggestSolution           = "ball.43";
+Timer1.timerInstance.timer.$suggestSolution = "GPTM0";
+UART21.uart.$suggestSolution                = "UART0";
+UART21.uart.txPin.$suggestSolution          = "boosterpack.32";
+UART21.uart.rxPin.$suggestSolution          = "boosterpack.18";
