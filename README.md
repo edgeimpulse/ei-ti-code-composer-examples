@@ -11,7 +11,7 @@ Edge Impulse provides a comprehensive set of [tutorials](https://docs.edgeimpuls
 This guide below provides the minimal steps required to integrate any Edge Impulse project into compatible Code Composer Studio projects.
 
 ## Requirements
-* [TI Code Composer Studio IDE] (https://www.ti.com/tool/CCSTUDIO)
+* [TI Code Composer Studio IDE](https://www.ti.com/tool/CCSTUDIO)
 * A trained Edge Impulse project
 
 If you are new to Edge Impulse follow our comprehensive [tutorials](https://docs.edgeimpulse.com/docs/development-boards/ti-launchxl) to learn about the platform features. You can also follow the [voice_recognition](./voice_recognition) tutorial in this repository to create and run 
